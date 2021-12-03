@@ -7,10 +7,8 @@ const botAPI = `http://localhost:8002/bots`
 function BotsPage() {
   //start here with your code for step one
 
-
   const [bots, setBots] = useState([]);
 
-  
   useEffect(() => {
     fetch(botAPI)
       .then((res) => res.json())
@@ -29,6 +27,10 @@ function BotsPage() {
 
   function discharge(bot) {
     // console.log('discharge')
+    fetch(`${botAPI}/${bot.id}`, {
+      method: "DELETE",
+    })
+      .then(r=>r.json()).then(() => console.log('deleted'))
     setBots(bots.filter(b => b.id !== bot.id))
   }
 

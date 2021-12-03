@@ -10,6 +10,7 @@ const botTypeClasses = {
 };
 
 function BotSpecs({ bot }) {
+  // console.log('viewSpec')
   return (
     <div className="ui segment">
       <div className="ui two column centered grid">
